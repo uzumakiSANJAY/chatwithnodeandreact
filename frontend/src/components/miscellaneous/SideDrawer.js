@@ -155,10 +155,10 @@ function SideDrawer() {
               <MDBBtn>
                 Notifications
                 <MDBBadge className='ms-2' color='danger'>
-                {notification.length}
+                {" "}{notification.length}
                 </MDBBadge>
               </MDBBtn>
-              <BellIcon fontSize="2xl" m={1} />
+              {/* <BellIcon fontSize="2xl" m={1} /> */}
             </MenuButton>
             <MenuList pl={2}>
               {!notification.length && "No New Messages"}
