@@ -5,6 +5,7 @@ const userSchema = mongoose.Schema(
   {
     name: { type: "String", required: true },
     email: { type: "String", unique: true, required: true },
+    phone : { type: "String", unique: true, required: true },
     password: { type: "String", required: true },
     pic: {
       type: "String",
@@ -12,7 +13,12 @@ const userSchema = mongoose.Schema(
       default:
         "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
     },
-    isAdmin: {
+    is_admin: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    is_varified: {
       type: Boolean,
       required: true,
       default: false,

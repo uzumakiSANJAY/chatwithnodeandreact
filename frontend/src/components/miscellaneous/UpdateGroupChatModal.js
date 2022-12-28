@@ -77,7 +77,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         `/api/chat/rename`,
         {
           chatId: selectedChat._id,
-          chatName: groupChatName,
+          chat_name: groupChatName,
         },
         config
       );
@@ -216,7 +216,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
             d="flex"
             justifyContent="center"
           >
-            {selectedChat.chatName}
+            {selectedChat.chat_name}
           </ModalHeader>
 
           <ModalCloseButton />

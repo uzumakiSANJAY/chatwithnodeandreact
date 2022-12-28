@@ -1,6 +1,6 @@
 const chats = [
     {
-      isGroupChat: false,
+      is_groupchat: false,
       users: [
         {
           name: "John Doe",
@@ -12,10 +12,10 @@ const chats = [
         },
       ],
       _id: "617a077e18c25468bc7c4dd4",
-      chatName: "John Doe",
+      chat_name: "John Doe",
     },
     {
-      isGroupChat: false,
+      is_groupchat: false,
       users: [
         {
           name: "Guest User",
@@ -27,10 +27,10 @@ const chats = [
         },
       ],
       _id: "617a077e18c25468b27c4dd4",
-      chatName: "Guest User",
+      chat_name: "Guest User",
     },
     {
-      isGroupChat: false,
+      is_groupchat: false,
       users: [
         {
           name: "Anthony",
@@ -42,10 +42,10 @@ const chats = [
         },
       ],
       _id: "617a077e18c2d468bc7c4dd4",
-      chatName: "Anthony",
+      chat_name: "Anthony",
     },
     {
-      isGroupChat: true,
+      is_groupchat: true,
       users: [
         {
           name: "John Doe",
@@ -61,14 +61,14 @@ const chats = [
         },
       ],
       _id: "617a518c4081150716472c78",
-      chatName: "Friends",
+      chat_name: "Friends",
       groupAdmin: {
         name: "Guest User",
         email: "guest@example.com",
       },
     },
     {
-      isGroupChat: false,
+      is_groupchat: false,
       users: [
         {
           name: "Jane Doe",
@@ -80,10 +80,10 @@ const chats = [
         },
       ],
       _id: "617a077e18c25468bc7cfdd4",
-      chatName: "Jane Doe",
+      chat_name: "Jane Doe",
     },
     {
-      isGroupChat: true,
+      is_groupchat: true,
       users: [
         {
           name: "John Doe",
@@ -99,7 +99,7 @@ const chats = [
         },
       ],
       _id: "617a518c4081150016472c78",
-      chatName: "Chill Zone",
+      chat_name: "Chill Zone",
       groupAdmin: {
         name: "Guest User",
         email: "guest@example.com",

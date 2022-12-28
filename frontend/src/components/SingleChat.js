@@ -178,7 +178,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               onClick={() => setSelectedChat("")}
             />
             {messages &&
-              (!selectedChat.isGroupChat ? (
+              (!selectedChat.is_groupchat ? (
                 <>
                   {getSender(user, selectedChat.users)}
                   <ProfileModal
@@ -187,7 +187,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 </>
               ) : (
                 <>
-                  {selectedChat.chatName.toUpperCase()}
+                  {selectedChat.chat_name.toUpperCase()}
                   <UpdateGroupChatModal
                     fetchMessages={fetchMessages}
                     fetchAgain={fetchAgain}

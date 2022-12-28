@@ -170,8 +170,8 @@ function SideDrawer() {
                     setNotification(notification.filter((n) => n !== notif));
                   }}
                 >
-                  {notif.chat.isGroupChat
-                    ? `New Message in ${notif.chat.chatName}`
+                  {notif.chat.is_groupchat
+                    ? `New Message in ${notif.chat.chat_name}`
                     : `New Message from ${getSender(user, notif.chat.users)}`}
                 </MenuItem>
               ))}

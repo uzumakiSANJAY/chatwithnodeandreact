@@ -14,17 +14,17 @@ const accessChat = asyncHandler(async (req, res) => {
   }
 
   var isChat = await Chat.find({
-    isGroupChat: false,
+    is_groupchat: false,
     $and: [
       { users: { $elemMatch: { $eq: req.user._id } } },
       { users: { $elemMatch: { $eq: userId } } },
     ],
   })
     .populate("users", "-password")
-    .populate("latestMessage");
+    .populate("latest_message");
 
   isChat = await User.populate(isChat, {
-    path: "latestMessage.sender",
+    path: "latest_message.sender",
     select: "name pic email",
   });
 
@@ -32,8 +32,8 @@ const accessChat = asyncHandler(async (req, res) => {
     res.send(isChat[0]);
   } else {
     var chatData = {
-      chatName: "sender",
-      isGroupChat: false,
+      chat_name: "sender",
+      is_groupchat: false,
       users: [req.user._id, userId],
     };
 
@@ -59,11 +59,11 @@ const fetchChats = asyncHandler(async (req, res) => {
     Chat.find({ users: { $elemMatch: { $eq: req.user._id } } })
       .populate("users", "-password")
       .populate("groupAdmin", "-password")
-      .populate("latestMessage")
+      .populate("latest_message")
       .sort({ updatedAt: -1 })
       .then(async (results) => {
         results = await User.populate(results, {
-          path: "latestMessage.sender",
+          path: "latest_message.sender",
           select: "name pic email",
         });
         res.status(200).send(results);
@@ -94,9 +94,9 @@ const createGroupChat = asyncHandler(async (req, res) => {
 
   try {
     const groupChat = await Chat.create({
-      chatName: req.body.name,
+      chat_name: req.body.name,
       users: users,
-      isGroupChat: true,
+      is_groupchat: true,
       groupAdmin: req.user,
     });
 
@@ -115,12 +115,12 @@ const createGroupChat = asyncHandler(async (req, res) => {
 // @route   PUT /api/chat/rename
 // @access  Protected
 const renameGroup = asyncHandler(async (req, res) => {
-  const { chatId , chatName } = req.body;
+  const { chatId , chat_name } = req.body;
 
   const updatedChat = await Chat.findByIdAndUpdate(
     chatId,
     {
-      chatName: chatName,
+      chat_name: chat_name,
     },
     {
       new: true,
